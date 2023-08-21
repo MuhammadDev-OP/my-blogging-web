@@ -3,10 +3,6 @@ import { Playfair_Display, Merriweather } from "next/font/google";
 import Header from "./layout/Header";
 
 const plf = Playfair_Display({ subsets: ["latin"] });
-const Merri = Merriweather({
-  subsets: ["latin"],
-  weight: "300",
-});
 
 export const metadata = {
   title: "Create Next App",
@@ -20,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`{plf.className} {Merri.className} `}>
+      <body className={plf.className}>
         <Header />
         {children}
       </body>
