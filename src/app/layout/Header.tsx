@@ -1,16 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Wrapper from "../shared/Wrapper";
 import { FiSearch } from "react-icons/fi";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Avatar from "../shared/Avatar";
+import MenuItem from "../shared/MenuItem";
 
 const Header = () => {
-  const toggleOpen = () => {
-    console.log("toggled");
-  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = useCallback(() => {
+    setIsOpen((value) => !value);
+  }, []);
 
   return (
     <>
@@ -39,6 +42,17 @@ const Header = () => {
               <Avatar src={undefined} />
             </div>
           </div>
+          {isOpen && (
+            <div className="absolute rounded-xl py-2 drop-shadow-md w-[40vw] md:w-1/5 bg-white overflow-hidden right-0 top-16 text-sm">
+              <div className="flex flex-col cursor-pointer">
+                <MenuItem onClick={() => {}} label="My Blogs" />
+                <MenuItem onClick={() => {}} label="My Supports" />
+                <hr />
+                <MenuItem onClick={() => {}} label="logIn" />
+                <MenuItem onClick={() => {}} label="logOut" />
+              </div>
+            </div>
+          )}
         </header>
       </Wrapper>
     </>
