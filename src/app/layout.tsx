@@ -1,5 +1,6 @@
 import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google";
+import Header from "./layout/Header";
 
 const plf = Playfair_Display({ subsets: ["latin"] });
 const Merri = Merriweather({
@@ -19,7 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`{plf.className} {Merri.className} `}>{children}</body>
+      <body className={`{plf.className} {Merri.className} `}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
