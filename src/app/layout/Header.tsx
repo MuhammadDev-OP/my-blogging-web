@@ -1,9 +1,17 @@
+"use client";
+
 import React from "react";
 import Wrapper from "../shared/Wrapper";
 import { FiSearch } from "react-icons/fi";
 import Link from "next/link";
+import { GiHamburgerMenu } from "react-icons/gi";
+import Avatar from "../shared/Avatar";
 
 const Header = () => {
+  const toggleOpen = () => {
+    console.log("toggled");
+  };
+
   return (
     <>
       <Wrapper>
@@ -12,12 +20,24 @@ const Header = () => {
             <li>
               <Link href={"/"}>Home</Link>
             </li>
-            <li>
-              <Link href={"/"}>My Blogs</Link>
-            </li>
           </ul>
           <div className="text-3xl font-bold">
-            <h2 className="">READER</h2>
+            <Link href={"/"}>
+              <img
+                className="w-full h-10 lg:h-16"
+                src="/logo-no-background2.svg"
+                alt=""
+              />
+            </Link>
+          </div>
+          <div
+            onClick={toggleOpen}
+            className="flex flex-row py-2 px-2 cursor-pointer gap-3 border-[2px] items-center rounded-full"
+          >
+            <GiHamburgerMenu />
+            <div>
+              <Avatar src={undefined} />
+            </div>
           </div>
         </header>
       </Wrapper>

@@ -69,7 +69,7 @@ const Hero = () => {
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                     alt="MuhammadKharkovavatar"
                   />
-                  <span className="font-medium ">Muhammad Kharkov</span>
+                  <span className="font-medium ">Mohd B.</span>
                 </div>
                 <a
                   href="#"
@@ -131,7 +131,7 @@ const Hero = () => {
                     src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/bonnie-green.png"
                     alt="Bonnie Green avatar"
                   />
-                  <span className="font-medium">John Adams</span>
+                  <span className="font-medium">John A.</span>
                 </div>
                 <a
                   href="#"
