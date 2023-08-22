@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero from "./widgets/Hero";
+import Hero from "./components/widgets/Hero";
 
 export default function Home() {
   return (

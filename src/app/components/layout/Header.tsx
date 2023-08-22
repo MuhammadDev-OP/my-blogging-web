@@ -19,7 +19,7 @@ const Header = () => {
     <>
       <Wrapper>
         <header className="flex justify-between pt-6 pb-4 items-center sticky top-0">
-          <ul className="font-semibold lg:flex lg:space-x-10 lg:text-lg lg:font-normal hidden">
+          <ul className="font-semibold hover:font-bold lg:flex lg:space-x-10 lg:text-lg lg:font-normal hidden">
             <li>
               <Link href={"/"}>Home</Link>
             </li>

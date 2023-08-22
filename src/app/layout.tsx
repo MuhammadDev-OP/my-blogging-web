@@ -1,6 +1,6 @@
 import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google";
-import Header from "./layout/Header";
+import Header from "./components/layout/Header";
 
 const plf = Playfair_Display({ subsets: ["latin"] });
 

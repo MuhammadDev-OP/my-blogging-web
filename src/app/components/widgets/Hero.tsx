@@ -57,10 +57,10 @@ const Hero = () => {
                 <a href="#">How to quickly deploy a static website</a>
               </h2>
               <p className="mb-5 font-light text-gray-500 ">
-                Static websites are now used to bootstrap lots of websites and
-                are becoming the basis for a variety of tools that even
-                influence both web designers and developers influence both web
-                designers and developers.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                sapiente aliquam, voluptas deleniti, libero molestiae enim eum
+                voluptates autem aut molestias totam cum magni labore distinctio
+                quis sequi repellendus magnam?
               </p>
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
@@ -119,10 +119,10 @@ const Hero = () => {
                 <a href="#">Our first project with React</a>
               </h2>
               <p className="mb-5 font-light text-gray-500 ">
-                Static websites are now used to bootstrap lots of websites and
-                are becoming the basis for a variety of tools that even
-                influence both web designers and developers influence both web
-                designers and developers.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum
+                libero ipsam molestias vitae sequi velit repudiandae doloremque
+                reiciendis amet, ab nesciunt nisi error enim placeat veritatis
+                temporibus eos corrupti adipisci.
               </p>
               <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
