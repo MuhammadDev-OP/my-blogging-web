@@ -7,6 +7,8 @@ import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Avatar from "../shared/Avatar";
 import MenuItem from "../shared/MenuItem";
+import LoginModal from "../modals/LoginModal";
+import SignUpModal from "../modals/SignUpModal";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,8 +49,9 @@ const Header = () => {
               <div className="flex flex-col cursor-pointer">
                 <MenuItem onClick={() => {}} label="My Blogs" />
                 <MenuItem onClick={() => {}} label="My Supports" />
+                <MenuItem onClick={LoginModal.onOpen} label="logIn" />
+                <MenuItem onClick={SignUpModal.onOpen} label="Sign Up" />
                 <hr />
-                <MenuItem onClick={() => {}} label="logIn" />
                 <MenuItem onClick={() => {}} label="logOut" />
               </div>
             </div>
