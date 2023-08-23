@@ -1,3 +1,5 @@
+//Only for Deployment and Safe user
+
 import { Listing, User } from "@prisma/client";
 
 export type SafeListing = Omit<Listing, "createdAt"> & {
