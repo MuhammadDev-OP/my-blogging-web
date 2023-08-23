@@ -13,6 +13,7 @@ import useLoginModal from "@/app/hooks/useLoginModal";
 import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 import { SafeUser } from "@/app/types";
+import { BiAddToQueue } from "react-icons/bi";
 
 interface NavbarProps {
   currentUser?: SafeUser | null;
@@ -45,13 +46,18 @@ const Header: React.FC<NavbarProps> = ({ currentUser }) => {
               />
             </Link>
           </div>
-          <div
-            onClick={toggleOpen}
-            className="flex flex-row py-2 px-2 cursor-pointer gap-3 border-[2px] items-center rounded-full"
-          >
-            <GiHamburgerMenu />
+          <div c>
             <div>
-              <Avatar src={currentUser?.image} />
+              <BiAddToQueue />
+            </div>
+            <div
+              onClick={toggleOpen}
+              className="flex flex-row py-2 px-2 cursor-pointer gap-3 border-[2px] items-center rounded-full"
+            >
+              <GiHamburgerMenu />
+              <div>
+                <Avatar src={currentUser?.image} />
+              </div>
             </div>
           </div>
           {isOpen && (
