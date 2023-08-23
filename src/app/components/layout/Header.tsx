@@ -10,8 +10,14 @@ import Avatar from "../shared/Avatar";
 import MenuItem from "../shared/MenuItem";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { User } from "@prisma/client";
+import { signOut } from "next-auth/react";
 
-const Header = () => {
+interface NavbarProps {
+  currentUser?: User | null;
+}
+
+const Header: React.FC<NavbarProps> = ({ currentUser }) => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
@@ -44,18 +50,25 @@ const Header = () => {
           >
             <GiHamburgerMenu />
             <div>
-              <Avatar src={undefined} />
+              <Avatar src={currentUser?.image} />
             </div>
           </div>
           {isOpen && (
             <div className="absolute rounded-xl py-2 drop-shadow-md w-[40vw] md:w-1/5 bg-white overflow-hidden right-0 top-16 text-sm">
               <div className="flex flex-col cursor-pointer">
-                <MenuItem onClick={() => {}} label="My Blogs" />
-                <MenuItem onClick={() => {}} label="My Supports" />
-                <MenuItem onClick={loginModal.onOpen} label="log In" />
-                <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
-                <hr />
-                <MenuItem onClick={() => {}} label="logOut" />
+                {currentUser ? (
+                  <>
+                    <MenuItem onClick={() => {}} label="My Blogs" />
+                    <MenuItem onClick={() => {}} label="My Supports" />
+                    <hr />
+                    <MenuItem onClick={() => signOut()} label="logout" />
+                  </>
+                ) : (
+                  <>
+                    <MenuItem onClick={loginModal.onOpen} label="log In" />
+                    <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
+                  </>
+                )}
               </div>
             </div>
           )}
