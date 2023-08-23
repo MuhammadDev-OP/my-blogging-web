@@ -1,16 +1,19 @@
 "use client";
 
 import React, { useCallback, useState } from "react";
+
 import Wrapper from "../shared/Wrapper";
 import { FiSearch } from "react-icons/fi";
 import Link from "next/link";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Avatar from "../shared/Avatar";
 import MenuItem from "../shared/MenuItem";
-import LoginModal from "../modals/LoginModal";
-import SignUpModal from "../modals/SignUpModal";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
+import useLoginModal from "@/app/hooks/useLoginModal";
 
 const Header = () => {
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = useCallback(() => {
@@ -49,8 +52,8 @@ const Header = () => {
               <div className="flex flex-col cursor-pointer">
                 <MenuItem onClick={() => {}} label="My Blogs" />
                 <MenuItem onClick={() => {}} label="My Supports" />
-                <MenuItem onClick={LoginModal.onOpen} label="logIn" />
-                <MenuItem onClick={SignUpModal.onOpen} label="Sign Up" />
+                <MenuItem onClick={loginModal.onOpen} label="log In" />
+                <MenuItem onClick={registerModal.onOpen} label="Sign Up" />
                 <hr />
                 <MenuItem onClick={() => {}} label="logOut" />
               </div>

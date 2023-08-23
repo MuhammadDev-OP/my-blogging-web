@@ -5,11 +5,12 @@ import Modal from "./Modal";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import Heading from "../shared/Heading";
 import Input from "../inputs/Input";
-import { useRouter } from "next/router";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
+import Button from "../shared/Button";
+import { FcGoogle } from "react-icons/fc";
 
-const LoginModal = () => {
+const RegisterModal = () => {
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
   const [isLoading, setIsLoading] = useState(false);
@@ -20,22 +21,65 @@ const LoginModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
   });
 
   const onToggle = useCallback(() => {
-    loginModal.onClose();
-    registerModal.onOpen();
+    registerModal.onClose();
+    loginModal.onOpen();
   }, [loginModal, registerModal]);
+
+  const footerContent = (
+    <div className="flex flex-col gap-4 mt-3">
+      <hr />
+      <Button
+        outline
+        label="Continue with Google"
+        icon={FcGoogle}
+        onClick={() => {}}
+      />
+      <div
+        className="
+          text-neutral-500 
+          text-center 
+          mt-4 
+          font-light
+        "
+      >
+        <p>
+          Already have an account?
+          <span
+            onClick={onToggle}
+            className="
+              text-neutral-800
+              cursor-pointer 
+              hover:underline
+            "
+          >
+            {" "}
+            Log In
+          </span>
+        </p>
+      </div>
+    </div>
+  );
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome back" subtitle="Login to your account!" />
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
       <Input
         id="email"
         label="Email"
+        disabled={isLoading}
+        register={register}
+        required
+      />
+      <Input
+        id="name"
+        label="Name"
         disabled={isLoading}
         register={register}
         required
@@ -54,13 +98,14 @@ const LoginModal = () => {
   return (
     <Modal
       disabled={isLoading}
-      isOpen={loginModal.isOpen}
-      onClose={loginModal.onClose}
+      isOpen={registerModal.isOpen}
+      onClose={registerModal.onClose}
       onSubmit={() => {}}
       body={bodyContent}
       actionLabel={"Continue"}
+      footer={footerContent}
     />
   );
 };
 
-export default LoginModal;
+export default RegisterModal;

@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Playfair_Display, Merriweather } from "next/font/google";
 import Header from "./components/layout/Header";
+import LoginModal from "./components/modals/LoginModal";
+import RegisterModal from "./components/modals/RegisterModal";
 
 const plf = Playfair_Display({ subsets: ["latin"] });
 
@@ -18,6 +20,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={plf.className}>
         <Header />
+        <LoginModal />
+        <RegisterModal />
         {children}
       </body>
     </html>
